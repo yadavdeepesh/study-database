@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users', [UserController::class, 'users']);
+
+Route::get('/student-users', [StudentController::class, 'getStudentUsers']);
+
+Route::get('/get-users', [UserController::class, 'getUsers']);
