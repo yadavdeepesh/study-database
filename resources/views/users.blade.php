@@ -1,6 +1,6 @@
 <div>
     <h1>Users</h1>
-    
+
 <table border="1" cellpadding="10">
     <thead>
         <tr>

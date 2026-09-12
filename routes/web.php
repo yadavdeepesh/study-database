@@ -23,3 +23,7 @@ Route::get('/users', [UserController::class, 'users']);
 Route::get('/student-users', [StudentController::class, 'getStudentUsers']);
 
 Route::get('/get-users', [UserController::class, 'getUsers']);
+
+Route::get('/get-queries', [UserController::class, 'getQueries']);
+
+Route::get('/get-queries2', [UserController::class, 'getQueries2']);
