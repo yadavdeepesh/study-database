@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +66,19 @@ Route::view('user-test', 'user-test')->name('user-test');
 Route::post('add-user',[UserController::class,'addUser']);
 
 Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+
+// create the upload page route 
+
+Route::view('/upload', 'upload')->name('upload');
+
+Route::get('/upload', [UploadController::class, 'upload'])
+    ->name('upload');
+
+
+// create a route to handal the uplaod request 
+
+Route::post('/upload-file', [UploadController::class, 'uploadFile'])
+    ->name('upload-file');
 
 
 
