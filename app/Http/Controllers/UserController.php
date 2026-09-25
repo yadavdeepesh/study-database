@@ -116,4 +116,33 @@ class UserController extends Controller
     
 
     }
+
+    function login(Request $request){
+        // echo $request->email;
+        // echo $request->password;
+
+        $request->session()->put('user',$request->input('email'));
+        $request->session()->put('allData',$request->input());
+
+        // echo session('user');
+        return redirect('profile');
+    }
+
+    function logout(){
+        session()->pull('user');
+         return redirect('profile');
+    }
+
+    // create the new function for addUser
+
+  function addUser(Request $request)
+    {
+        return redirect()->route('profile')
+            ->with('success', 'User added successfully!');
+    }
+
+    function profile()
+    {
+        return view('profile');
+    }
 }

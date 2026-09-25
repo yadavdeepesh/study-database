@@ -47,3 +47,24 @@ Route::match(['put','delete'],'/test-match',[TestController::class, 'group2']);
 Route::post('/test-request', [TestController::class, 'login']);
 
 Route::view('user-form', 'user-form');
+
+// create view for login user 
+
+Route::view('login-user', 'login-user');
+
+Route::post('login',[UserController::class, 'login']);
+
+
+Route::view('profile', 'profile');
+
+Route::get('logout',[UserController::class, 'logout']);
+
+// create the user route 
+Route::view('user-test', 'user-test')->name('user-test');
+
+Route::post('add-user',[UserController::class,'addUser']);
+
+Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+
+
+
