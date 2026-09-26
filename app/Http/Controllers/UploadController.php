@@ -26,7 +26,7 @@ public function uploadFile(Request $request)
 
 public function upload()
 {
-    $files = Storage::files('uploads');
+    $files = Storage::disk('public')->files('uploads');
 
     return view('upload', compact('files'));
 }

@@ -42,24 +42,46 @@
     <hr>
 
     <h3>Uploaded Files</h3>
+<h3>Uploaded Files</h3>
 
-    @if(count($files) > 0)
+@if(count($files) > 0)
 
-        <ul>
-            @foreach($files as $file)
+    @foreach($files as $file)
 
-                <li>
-                    {{ basename($file) }}
-                </li>
+        @php
+            $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        @endphp
 
-            @endforeach
-        </ul>
+        <div style="margin-bottom: 30px;">
 
-    @else
+            <p>{{ basename($file) }}</p>
 
-        <p>No files uploaded yet.</p>
+            @if(in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'webp']))
 
-    @endif
+                <!-- <img
+                    src="{{ asset('storage/' . $file) }}"
+                    width="300"
+                    alt="{{ basename($file) }}"
+                > -->
+                <img src="{{ asset('storage/' . $file) }}">
+
+            @elseif($extension === 'pdf')
+
+                <a href="{{ asset('storage/' . $file) }}" target="_blank">
+                    View PDF
+                </a>
+
+            @endif
+
+        </div>
+
+    @endforeach
+
+@else
+
+    <p>No files uploaded yet.</p>
+
+@endif
 
 </body>
 </html>
