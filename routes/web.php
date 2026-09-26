@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\StudentTestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,5 +82,17 @@ Route::get('/upload', [UploadController::class, 'upload'])
 Route::post('/upload-file', [UploadController::class, 'uploadFile'])
     ->name('upload-file');
 
+
+
+
+
+Route::get('/student/create', [StudentTestController::class, 'create'])
+    ->name('student.create');
+
+Route::post('/student/store', [StudentTestController::class, 'store'])
+    ->name('student.store');
+
+Route::get('/students', [StudentTestController::class, 'index'])
+    ->name('student.index');
 
 
