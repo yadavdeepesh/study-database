@@ -95,4 +95,14 @@ Route::post('/student/store', [StudentTestController::class, 'store'])
 Route::get('/students', [StudentTestController::class, 'index'])
     ->name('student.index');
 
+Route::delete('/student/{id}', [StudentTestController::class, 'destroy'])
+    ->name('student.delete');
+
+Route::get('/student/{id}/edit', [StudentTestController::class, 'edit'])
+    ->name('student.edit');
+
+Route::put('/student/{id}', [StudentTestController::class, 'update'])
+    ->name('student.update');
+    
+
 
